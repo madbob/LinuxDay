@@ -7,7 +7,9 @@
 
 function testcity ($city) {
 	sleep (1);
-	$test = file_get_contents ("http://api.geonames.org/search?q=${city}&country=IT&username=madbob");
+
+	$c = str_replace (' ', '%20', $city);
+	$test = file_get_contents ("http://api.geonames.org/search?q=${c}&country=IT&username=madbob");
 
 	$doc = new DOMDocument ();
 	if ($doc->loadXML ($test, LIBXML_NOWARNING) == false) {
@@ -47,7 +49,11 @@ else {
 
 	foreach ($contents as $row) {
 		$fields = explode ('","', $row);
-		$city = preg_replace ("[ ']", '', strtolower (trim ($fields [3], '"')));
+
+		$city = strtolower (trim ($fields [3], '"'));
+		$city = str_replace ("'", '', $city);
+		$city = str_replace (' ', '', $city);
+
 		$link = trim ($fields [5], '"');
 
 		if ($city == '' || $link == '') {
