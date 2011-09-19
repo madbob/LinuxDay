@@ -68,9 +68,6 @@ else {
 			if (testcity ($fields [3]) == FALSE)
 				continue;
 
-			if ($link [strlen ($link) - 1] != '/')
-				$link .= '/';
-
 			$final [$city] = $link;
 		}
 	}
