@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Preleva i dati raw sulle registrazioni, li compara con l'ultima copia salvata
+# localmente, e per ogni nuova citta' spedisce un aggiornamento sull'account
+# Twitter per mezzo di twidge ( https://github.com/jgoerzen/twidge )
+# Il file di configurazione OAuth per twidge non viene divulgato per ovvie
+# ragioni di sicurezza
+
 wget http://www.linuxday.it/data
 lines=`wc -l data | cut -d' ' -f 1`
 
