@@ -33,7 +33,7 @@ do
 
 			if [ $? -eq 0 ]
 			then
-				# twidge -c /home/madbob/.twidgerc-linuxday-twitter update "registrato un nuovo LinuxDay a $city: $link"
+				twidge -c /home/madbob/.twidgerc-linuxday-twitter update "registrato un nuovo LinuxDay a $city: $link"
 				echo "registrato un nuovo LinuxDay a $city: $link"
 			fi
 		fi
