@@ -25,7 +25,7 @@ do
 
 	if [ `grep "$city" olddata | wc -l` -eq 0 ]
 	then
-		link=`echo $i | cut -d'#' -f 6`
+		link=`echo $i | cut -d'#' -f 6 | sed "s/..$//g"`
 
 		if [ "$link" != "" ]
 		then
@@ -41,4 +41,3 @@ do
 done < "data"
 
 mv data olddata
-
